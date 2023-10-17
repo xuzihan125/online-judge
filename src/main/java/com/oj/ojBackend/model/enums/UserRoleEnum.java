@@ -1,0 +1,61 @@
+package com.oj.ojBackend.model.enums;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.apache.commons.lang3.ObjectUtils;
+
+/**
+ * user role enum
+ *
+ */
+public enum UserRoleEnum {
+
+    USER("user", "user"),
+    ADMIN("admin", "admin"),
+    BAN("banned", "ban");
+
+    private final String text;
+
+    private final String value;
+
+    UserRoleEnum(String text, String value) {
+        this.text = text;
+        this.value = value;
+    }
+
+    /**
+     * get list of all the values
+     *
+     * @return
+     */
+    public static List<String> getValues() {
+        return Arrays.stream(values()).map(item -> item.value).collect(Collectors.toList());
+    }
+
+    /**
+     * get Enum object based on the value
+     *
+     * @param value
+     * @return
+     */
+    public static UserRoleEnum getEnumByValue(String value) {
+        if (ObjectUtils.isEmpty(value)) {
+            return null;
+        }
+        for (UserRoleEnum anEnum : UserRoleEnum.values()) {
+            if (anEnum.value.equals(value)) {
+                return anEnum;
+            }
+        }
+        return null;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public String getText() {
+        return text;
+    }
+}
