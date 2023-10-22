@@ -3,19 +3,33 @@ package com.oj.ojBackend.judge.codesandbox;
 import com.oj.ojBackend.judge.codesandbox.impl.ExampleCodeSandbox;
 import com.oj.ojBackend.judge.codesandbox.impl.RemoteCodeSandbox;
 import com.oj.ojBackend.judge.codesandbox.impl.ThirdPartyCodeSandbox;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.Resource;
+
+@Component
 public class CodeSandboxFactory {
-    
-    public static CodeSandbox newInstance(String type) {
+
+    @Resource
+    private ExampleCodeSandbox exampleCodeSandbox;
+
+    @Resource
+    private RemoteCodeSandbox remoteCodeSandbox;
+
+    @Resource
+    private ThirdPartyCodeSandbox thirdPartyCodeSandbox;
+
+
+    public CodeSandbox newInstance(String type) {
         switch (type){
             case "example":
-                return new ExampleCodeSandbox();
+                return exampleCodeSandbox;
             case "Remote":
-                return new RemoteCodeSandbox();
+                return remoteCodeSandbox;
             case "ThirdParty":
-                return new ThirdPartyCodeSandbox();
+                return thirdPartyCodeSandbox;
             default:
-                return new ExampleCodeSandbox();
+                return exampleCodeSandbox;
         }
     }
 }

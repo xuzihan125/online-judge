@@ -42,6 +42,9 @@ public class JudgeServiceImpl implements JudgeService {
     @Value("${codesandbox.type:example}")
     private String type;
 
+    @Resource
+    private CodeSandboxFactory codeSandboxFactory;
+
     @Override
     public SolutionSubmit doJudge(long solutionSubmitId) {
         SolutionSubmit solutionSubmit = solutionSubmitService.getById(solutionSubmitId);
@@ -77,7 +80,7 @@ public class JudgeServiceImpl implements JudgeService {
 
                 .build();
         // use sandbox, execute solution
-        CodeSandbox sandbox = CodeSandboxFactory.newInstance(type);
+        CodeSandbox sandbox = codeSandboxFactory.newInstance(type);
         ExecuteCodeRespond executeCodeRespond = sandbox.executeCode(request);
         //judge the execute result
         JudgeContext judgeContext = new JudgeContext();

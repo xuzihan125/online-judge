@@ -1,21 +1,18 @@
-# 数据库初始化
-# @author <a href="https://github.com/liyupi">程序员鱼皮</a>
-# @from <a href="https://yupi.icu">编程导航知识星球</a>
 
--- 创建库
+-- create database
 create database if not exists online_judge;
 
--- 切换库
+-- change database
 use online_judge;
 
--- 用户表
+-- user table
 create table if not exists user
 (
     id           bigint auto_increment comment 'id' primary key,
     userAccount  varchar(256)                           not null comment 'account',
     userPassword varchar(512)                           not null comment 'password',
-#     unionId      varchar(256)                           null comment 'wechat platform',
-#     mpOpenId     varchar(256)                           null comment 'wechat platform, public account',
+    unionId      varchar(256)                           null comment 'wechat platform',
+    mpOpenId     varchar(256)                           null comment 'wechat platform, public account',
     userName     varchar(256)                           null comment 'user name',
     userAvatar   varchar(1024)                          null comment 'user avatar',
     userProfile  varchar(512)                           null comment 'description in user profile',

@@ -7,10 +7,12 @@ import com.oj.ojBackend.model.dto.solutionsubmit.JudgeInfo;
 import com.oj.ojBackend.model.enums.JudgeInfoMessageEnum;
 import com.oj.ojBackend.model.enums.SolutionSubmitStatusEnum;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Slf4j
+@Component
 public class ExampleCodeSandbox implements CodeSandbox {
 
     @Override

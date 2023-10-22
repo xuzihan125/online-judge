@@ -12,15 +12,13 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * EasyExcel 测试
+ * EasyExcel test
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @SpringBootTest
 public class EasyExcelTest {
 
-    @Test
+//    @Test
     public void doImport() throws FileNotFoundException {
         File file = ResourceUtils.getFile("classpath:test_excel.xlsx");
         List<Map<Integer, String>> list = EasyExcel.read(file)

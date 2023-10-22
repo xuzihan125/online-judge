@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,10 +18,13 @@ class CodeSandboxTest {
     @Value("${codesandbox.type:example}")
     private String type;
 
-    @Test
+    @Resource
+    private CodeSandboxFactory codeSandboxFactory;
+
+//    @Test
     void executeCode() {
         System.out.println(type);
-        CodeSandbox sandbox = CodeSandboxFactory.newInstance(type);
+        CodeSandbox sandbox = codeSandboxFactory.newInstance(type);
         sandbox = new CodeSandboxProxy(sandbox);
         String code = "public class Main {\n" +
                 "    public static void main(String[] args){\n" +

@@ -9,47 +9,36 @@ import com.oj.ojBackend.model.vo.UserVO;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-import me.chanjar.weixin.common.bean.WxOAuth2UserInfo;
 
 /**
- * 用户服务
+ * user service
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 public interface UserService extends IService<User> {
 
     /**
-     * 用户注册
+     * user register
      *
-     * @param userAccount   用户账户
-     * @param userPassword  用户密码
-     * @param checkPassword 校验密码
-     * @return 新用户 id
+     * @param userAccount   user account
+     * @param userPassword  user password
+     * @param checkPassword user password validation
+     * @return id of new user
      */
     long userRegister(String userAccount, String userPassword, String checkPassword);
 
     /**
-     * 用户登录
+     * user login
      *
-     * @param userAccount  用户账户
-     * @param userPassword 用户密码
+     * @param userAccount  user account
+     * @param userPassword user password
      * @param request
-     * @return 脱敏后的用户信息
+     * @return masked user data
      */
     LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request);
 
-    /**
-     * 用户登录（微信开放平台）
-     *
-     * @param wxOAuth2UserInfo 从微信获取的用户信息
-     * @param request
-     * @return 脱敏后的用户信息
-     */
-    LoginUserVO userLoginByMpOpen(WxOAuth2UserInfo wxOAuth2UserInfo, HttpServletRequest request);
 
     /**
-     * 获取当前登录用户
+     * get current login user
      *
      * @param request
      * @return
@@ -57,7 +46,7 @@ public interface UserService extends IService<User> {
     User getLoginUser(HttpServletRequest request);
 
     /**
-     * 获取当前登录用户（允许未登录）
+     * get current login user (allow not login)
      *
      * @param request
      * @return
@@ -65,7 +54,7 @@ public interface UserService extends IService<User> {
     User getLoginUserPermitNull(HttpServletRequest request);
 
     /**
-     * 是否为管理员
+     * check if current user is admin
      *
      * @param request
      * @return
@@ -73,7 +62,7 @@ public interface UserService extends IService<User> {
     boolean isAdmin(HttpServletRequest request);
 
     /**
-     * 是否为管理员
+     * check if user is admin
      *
      * @param user
      * @return
@@ -81,7 +70,7 @@ public interface UserService extends IService<User> {
     boolean isAdmin(User user);
 
     /**
-     * 用户注销
+     * user logout
      *
      * @param request
      * @return
@@ -89,14 +78,14 @@ public interface UserService extends IService<User> {
     boolean userLogout(HttpServletRequest request);
 
     /**
-     * 获取脱敏的已登录用户信息
+     * masked login user info
      *
      * @return
      */
     LoginUserVO getLoginUserVO(User user);
 
     /**
-     * 获取脱敏的用户信息
+     * masked user info
      *
      * @param user
      * @return
@@ -104,7 +93,7 @@ public interface UserService extends IService<User> {
     UserVO getUserVO(User user);
 
     /**
-     * 获取脱敏的用户信息
+     * get list of masked user info
      *
      * @param userList
      * @return
@@ -112,7 +101,7 @@ public interface UserService extends IService<User> {
     List<UserVO> getUserVO(List<User> userList);
 
     /**
-     * 获取查询条件
+     * get query SQL
      *
      * @param userQueryRequest
      * @return

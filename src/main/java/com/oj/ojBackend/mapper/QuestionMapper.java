@@ -6,7 +6,8 @@ import com.oj.ojBackend.model.entity.Question;
 /**
 * @author xuzih
 * @description 针对表【question(problem)】的数据库操作Mapper
-* @createDate 2023-10-02 21:28:26
+* @createDate 2023-10-19 23:18:18
+* @Entity com.oj.ojBackend.model.entity..Question
 */
 public interface QuestionMapper extends BaseMapper<Question> {
 
