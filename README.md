@@ -4,9 +4,9 @@ API document: http://52.91.174.68:8000/api/doc.html#/home
 
 database file: /oj-backend/sql/create_table.sql
 
-front-end repo: https://github.com/xuzihan125/oj-code-sandbox
+front-end repo: https://github.com/xuzihan125/oj-frontend
 
-sandbox repo: https://github.com/xuzihan125/oj-code-sandbox/
+sandbox repo: https://github.com/xuzihan125/oj-code-sandbox
 
 # Project Introduction
 The project adopts a development model that separates the front end, back end and the code-sandbox. The front page sends Http requests to the back end, the back end returns Json data. If necessary, the back ends send request to the sandbox, which runs the code and return the result. 
